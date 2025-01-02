@@ -10,9 +10,15 @@ class Main {
         Scanner scan = new Scanner(System.in);
 
         String itemName = scan.nextLine();
+
+        System.out.println("How much does this item cost???");
+
+        int itemCost = scan.nextInt();
+
         // System.out.println(itemName);
         itemList.add(itemName);
         // Make an Item class that gets the expenses lol
+        
         scan.close();
         
     }
