@@ -18,7 +18,11 @@ class Main {
         // System.out.println(itemName);
         itemList.add(itemName);
         // Make an Item class that gets the expenses lol
-        
+        Item item = new Item(itemName, itemCost);
+        System.out.println("Item Name: " + item.getName());
+        System.out.println("Item Cost: ");
+        System.out.print(itemCost);
+        System.out.println("");
         scan.close();
         
     }
