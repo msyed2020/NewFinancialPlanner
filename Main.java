@@ -124,7 +124,20 @@ class Main {
         }
 
         System.out.println("Which item would you like to edit??? Input a number here:");
-        
+        int option = scan.nextInt();
+        scan.nextLine();
+        if (option < 1 || option > itemList.size()) {
+            System.out.println("Invalid choice.");
+            hub(itemList);
+            return;
+        }
+        Item selectedItem = itemList.get(option - 1);
+        System.out.println("You have chosen to modify your goal for your " + selectedItem.getName() + ". What would you like to do???");
+        System.out.println("1. Confirm this month's savings.");
+        System.out.println("2. Edit Item information.");
+        System.out.println("3. Delete item");
+        int option2 = scan.nextInt();
+        scan.nextLine();
 
     }
 }
