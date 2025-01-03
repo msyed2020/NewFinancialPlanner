@@ -135,9 +135,36 @@ class Main {
         System.out.println("You have chosen to modify your goal for your " + selectedItem.getName() + ". What would you like to do???");
         System.out.println("1. Confirm this month's savings.");
         System.out.println("2. Edit Item information.");
-        System.out.println("3. Delete item");
+        System.out.println("3. I've saved money for this item.");
+        System.out.println("4. Delete item");
         int option2 = scan.nextInt();
         scan.nextLine();
+
+        if (option2 > 4 || option2 < 1) {
+            System.out.println("Invalid choice.");
+            hub(itemList);
+            return;
+        }
+        if (option2 == 1) {
+            selectedItem.setCost(selectedItem.getCost() - selectedItem.getAmountSaved());
+            System.out.println("We've updated the cost with your amount saved!");
+        }
+        if (option2 == 2) {
+            // create function for editing item
+        }
+        if (option2 == 3) {
+            System.out.println("How much have you saved now???");
+            int amount = scan.nextInt();
+            scan.nextLine();
+            selectedItem.setAmountSaved(selectedItem.getAmountSaved() + amount);
+        }
+        if (option2 == 4) {
+            String oldItem = selectedItem.getName();
+            itemList.remove(selectedItem);
+            System.out.println("You have removed " + oldItem + ".");
+        }
+
+        hub(itemList);
 
     }
 }
