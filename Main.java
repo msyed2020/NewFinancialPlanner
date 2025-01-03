@@ -75,8 +75,11 @@ class Main {
         for (int i = 0; i < itemList.size(); i++) {
             System.out.println("");
             System.out.println("Item: " + itemList.get(i).getName());
-            System.out.println("Cost: ");
+            System.out.println("Cost: $");
             System.out.print(itemList.get(i).getCost());
+            System.out.println("");
+            System.out.println("Cost per Month: $");
+            System.out.print(itemList.get(i).costPerMonth());
             System.out.println("");
             System.out.println("");
             System.out.println("=============");
