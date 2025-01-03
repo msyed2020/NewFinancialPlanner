@@ -28,10 +28,22 @@ class Main {
         
     }
 
-    public void hub() {
+    public void hub(ArrayList<Item> itemList) {
         System.out.println("What would you like to do?");
         System.out.println("1. Enter a new item");
         System.out.println("2. List current items");
+        Scanner scan = new Scanner(System.in);
+        int option = scan.nextInt();
+        if (option != 1 || option != 2) {
+            System.out.println("Invalid choice. Try again.");
+            hub(itemList);
+            scan.close();
+            return;
+        }
+        if (option == 2) {
+            listItems(itemList);
+        }
+        scan.close();
     }
 
     public void listItems(ArrayList<Item> itemList) {
@@ -41,5 +53,6 @@ class Main {
             System.out.print(itemList.get(i).getCost());
             System.out.println("");
         }
+        hub(itemList);
     }
 }
