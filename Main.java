@@ -20,10 +20,11 @@ class Main {
             System.out.println("What would you like to do?");
             System.out.println("1. Enter a new item");
             System.out.println("2. List current items");
-            System.out.println("3. Exit app");
+            System.out.println("3. Edit an Item");
+            System.out.println("4. Exit app");
             int option = scan.nextInt();
             scan.nextLine();
-            if (option > 3 || option < 1) {
+            if (option > 4 || option < 1) {
                 System.out.println("Invalid choice. Try again.");
                 
             }
@@ -36,6 +37,10 @@ class Main {
                 break;
             }
             if (option == 3) {
+                editItem(itemList, scan);
+                break;
+            }
+            if (option == 4) {
                 System.out.println("Thanks for using us today!");
                 scan.close();
                 return;
@@ -76,10 +81,13 @@ class Main {
     public static void listItems(ArrayList<Item> itemList) {
         if (itemList.isEmpty()) {
             System.out.println("No items here.");
+            hub(itemList);
+            return;
         }
         System.out.println("=============");
         for (int i = 0; i < itemList.size(); i++) {
             System.out.println("");
+            System.out.println("#" + (i + 1) + ": ");
             System.out.println("Item: " + itemList.get(i).getName());
             System.out.println("Cost: $");
             System.out.print(itemList.get(i).getCost());
@@ -91,5 +99,32 @@ class Main {
             System.out.println("=============");
         }
         hub(itemList);
+    }
+
+    public static void editItem(ArrayList<Item> itemList, Scanner scan) {
+
+        if (itemList.isEmpty()) {
+            System.out.println("No items here.");
+            hub(itemList);
+            return;
+        }
+        System.out.println("=============");
+        for (int i = 0; i < itemList.size(); i++) {
+            System.out.println("");
+            System.out.println("#" + (i + 1) + ": ");
+            System.out.println("Item: " + itemList.get(i).getName());
+            System.out.println("Cost: $");
+            System.out.print(itemList.get(i).getCost());
+            System.out.println("");
+            System.out.println("Cost per Month: $");
+            System.out.print(itemList.get(i).costPerMonth());
+            System.out.println("");
+            System.out.println("");
+            System.out.println("=============");
+        }
+
+        System.out.println("Which item would you like to edit??? Input a number here:");
+        
+
     }
 }
