@@ -12,31 +12,43 @@ class Main {
     }
 
     public static void hub(ArrayList<Item> itemList) {
+        Scanner scan = new Scanner(System.in);
+
+        
+        while (true) {
+
         System.out.println("What would you like to do?");
         System.out.println("1. Enter a new item");
         System.out.println("2. List current items");
-        Scanner scan = new Scanner(System.in);
+        System.out.println("3. Exit app");
         int option = scan.nextInt();
-        if (option > 2 || option < 1) {
-            System.out.println("Invalid choice. Try again.");
-            hub(itemList);
-            scan.close();
-            return;
+        scan.nextLine();
+            if (option > 2 || option < 1) {
+                System.out.println("Invalid choice. Try again.");
+                hub(itemList);
+                scan.close();
+                return;
+            }
+            if (option == 1) {
+                enterItem(itemList, scan);
+                break;
+            }
+            if (option == 2) {
+                listItems(itemList);
+                break;
+            }
+            if (option == 3) {
+                System.out.println("Adios");
+                scan.close();
+                return;
+            }
         }
-        if (option == 1) {
-            enterItem(itemList);
-        }
-        if (option == 2) {
-            listItems(itemList);
-        }
-        scan.close();
+        
     }
 
-    public static void enterItem(ArrayList<Item> itemList) {
+    public static void enterItem(ArrayList<Item> itemList, Scanner scan) {
 
         System.out.println(" Tell me an item you want to save up for.");
-
-        Scanner scan = new Scanner(System.in);
 
         String itemName = scan.nextLine();
 
@@ -53,9 +65,8 @@ class Main {
         System.out.println("Item Cost: ");
         System.out.print(itemCost);
         System.out.println("");
-        scan.close();
 
-        hub(itemList);
+        //hub(itemList);
     }
 
     public static void listItems(ArrayList<Item> itemList) {
@@ -65,6 +76,6 @@ class Main {
             System.out.print(itemList.get(i).getCost());
             System.out.println("");
         }
-        hub(itemList);
+        //hub(itemList);
     }
 }
