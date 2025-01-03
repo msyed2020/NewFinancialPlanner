@@ -17,17 +17,15 @@ class Main {
         
         while (true) {
 
-        System.out.println("What would you like to do?");
-        System.out.println("1. Enter a new item");
-        System.out.println("2. List current items");
-        System.out.println("3. Exit app");
-        int option = scan.nextInt();
-        scan.nextLine();
-            if (option > 2 || option < 1) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Enter a new item");
+            System.out.println("2. List current items");
+            System.out.println("3. Exit app");
+            int option = scan.nextInt();
+            scan.nextLine();
+            if (option > 3 || option < 1) {
                 System.out.println("Invalid choice. Try again.");
-                hub(itemList);
-                scan.close();
-                return;
+                
             }
             if (option == 1) {
                 enterItem(itemList, scan);
@@ -38,7 +36,7 @@ class Main {
                 break;
             }
             if (option == 3) {
-                System.out.println("Adios");
+                System.out.println("Thanks for using us today!");
                 scan.close();
                 return;
             }
@@ -48,7 +46,7 @@ class Main {
 
     public static void enterItem(ArrayList<Item> itemList, Scanner scan) {
 
-        System.out.println(" Tell me an item you want to save up for.");
+        System.out.println("Tell me an item you want to save up for.");
 
         String itemName = scan.nextLine();
 
@@ -66,16 +64,23 @@ class Main {
         System.out.print(itemCost);
         System.out.println("");
 
-        //hub(itemList);
+        hub(itemList);
     }
 
     public static void listItems(ArrayList<Item> itemList) {
+        if (itemList.isEmpty()) {
+            System.out.println("No items here.");
+        }
+        System.out.println("=============");
         for (int i = 0; i < itemList.size(); i++) {
+            System.out.println("");
             System.out.println("Item: " + itemList.get(i).getName());
             System.out.println("Cost: ");
             System.out.print(itemList.get(i).getCost());
             System.out.println("");
+            System.out.println("");
+            System.out.println("=============");
         }
-        //hub(itemList);
+        hub(itemList);
     }
 }
