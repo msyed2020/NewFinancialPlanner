@@ -146,17 +146,49 @@ class Main {
             return;
         }
         if (option2 == 1) {
-            selectedItem.setCost(selectedItem.getCost() - selectedItem.getAmountSaved());
-            System.out.println("We've updated the cost with your amount saved!");
+            System.out.println("Do you want to use your Amount Saved or subtract your Monthly Saving goal???");
+            System.out.println("1. Amount Saved");
+            System.out.println("2. Monthly Saving Goal");
+            int choice = scan.nextInt();
+            scan.nextLine();
+
+            if (choice < 1 || choice > 2) {
+                System.out.println("Invalid choice.");
+                hub(itemList);
+                return;
+            }
+            if (choice == 1) {
+                selectedItem.setCost(selectedItem.getCost() - selectedItem.getAmountSaved());
+            }
+            if (choice == 2) {
+                selectedItem.setCost(selectedItem.getCost() - selectedItem.getSavingGoal());
+            }
+            
+            System.out.println("We've updated the cost!");
         }
         if (option2 == 2) {
             // create function for editing item
         }
         if (option2 == 3) {
-            System.out.println("How much have you saved now???");
-            int amount = scan.nextInt();
+            System.out.println("Do you want to enter your monthly saving goal or a manual amount???");
+            System.out.println("1. Monthly Saving Goal");
+            System.out.println("2. Manual Amount");
+            int choice = scan.nextInt();
             scan.nextLine();
-            selectedItem.setAmountSaved(selectedItem.getAmountSaved() + amount);
+            if (choice < 1 || choice > 2) {
+                System.out.println("Invalid choice.");
+                hub(itemList);
+                return;
+            }
+            if (choice == 1) {
+                selectedItem.setAmountSaved(selectedItem.getAmountSaved() + selectedItem.getSavingGoal());
+            }
+            if (choice == 2) {
+                System.out.println("How much have you saved now???");
+                int amount = scan.nextInt();
+                scan.nextLine();
+                selectedItem.setAmountSaved(selectedItem.getAmountSaved() + amount);
+            }
         }
         if (option2 == 4) {
             String oldItem = selectedItem.getName();
