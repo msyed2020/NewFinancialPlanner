@@ -225,6 +225,18 @@ class Main {
             scan.nextLine();
             selectedItem.setCost(newCost);
         }
-        
+        if (choice == 3) {
+            System.out.println("Please enter a saving goal: ");
+            int newGoal = scan.nextInt();
+            scan.nextLine();
+            selectedItem.setSavingGoal(newGoal);
+        }
+        if (choice == 4) {
+            System.out.println("Please enter an amount saved: ");
+            int newAmount = scan.nextInt();
+            scan.nextLine();
+            selectedItem.setAmountSaved(newAmount);
+        }
+        hub(itemList);
     }
 }
