@@ -167,7 +167,7 @@ class Main {
             System.out.println("We've updated the cost!");
         }
         if (option2 == 2) {
-            // create function for editing item
+            editItem(selectedItem, scan, itemList);
         }
         if (option2 == 3) {
             System.out.println("Do you want to enter your monthly saving goal or a manual amount???");
