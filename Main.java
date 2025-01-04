@@ -199,4 +199,32 @@ class Main {
         hub(itemList);
 
     }
+
+    public static void editItem(Item selectedItem, Scanner scan, ArrayList<Item> itemList) {
+        System.out.println("What would you like to do???:");
+        System.out.println("1. Change Item Name");
+        System.out.println("2. Change Item Cost");
+        System.out.println("3. Change Saving Goal");
+        System.out.println("4. Change Amount Saved");
+
+        int choice = scan.nextInt();
+        scan.nextLine();
+        if (choice < 1 || choice > 4) {
+            hub(itemList);
+            return;
+        }
+        if (choice == 1) {
+            System.out.println("Please enter a new name: ");
+            String newName = scan.nextLine();
+            scan.nextLine();
+            selectedItem.setName(newName);
+        }
+        if (choice == 2) {
+            System.out.println("Please enter a new cost: ");
+            int newCost = scan.nextInt();
+            scan.nextLine();
+            selectedItem.setCost(newCost);
+        }
+        
+    }
 }
