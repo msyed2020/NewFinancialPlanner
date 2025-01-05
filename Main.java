@@ -65,9 +65,7 @@ class Main {
         int saving = scan.nextInt();
         scan.nextLine();
 
-        // System.out.println(itemName);
-        //itemList.add(itemName);
-        // Make an Item class that gets the expenses lol
+        
         Item item = new Item(itemName, itemCost, saving, 0);
         itemList.add(item);
         System.out.println("Item Name: " + item.getName());
