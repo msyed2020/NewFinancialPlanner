@@ -167,7 +167,7 @@ class Main {
             System.out.println("We've updated the cost!");
         }
         if (option2 == 2) {
-            editItem(selectedItem, scan, itemList);
+            editItemInfo(selectedItem, scan, itemList);
         }
         if (option2 == 3) {
             System.out.println("Do you want to enter your monthly saving goal or a manual amount???");
@@ -200,7 +200,7 @@ class Main {
 
     }
 
-    public static void editItem(Item selectedItem, Scanner scan, ArrayList<Item> itemList) {
+    public static void editItemInfo(Item selectedItem, Scanner scan, ArrayList<Item> itemList) {
         System.out.println("What would you like to do???:");
         System.out.println("1. Change Item Name");
         System.out.println("2. Change Item Cost");
@@ -216,7 +216,6 @@ class Main {
         if (choice == 1) {
             System.out.println("Please enter a new name: ");
             String newName = scan.nextLine();
-            scan.nextLine();
             selectedItem.setName(newName);
         }
         if (choice == 2) {
@@ -238,5 +237,6 @@ class Main {
             selectedItem.setAmountSaved(newAmount);
         }
         hub(itemList);
+        return;
     }
 }
